@@ -20,7 +20,7 @@ model = ResNet50(weights="imagenet", include_top=False, input_shape=(224, 224, 3
 model.trainable = False
 model = Sequential([model, GlobalMaxPooling2D()])
 
-st.title('Clothing recommender system')
+st.title('Fashion recommender system')
 
 
 def save_file(uploaded_file):
@@ -65,7 +65,7 @@ if uploaded_file is not None:
         features = extract_img_features(os.path.join("uploader", uploaded_file.name), model)
         #st.text(features)
         img_indicess = recommendd(features, features_list)
-          col1,col2,col3,col4,col5 = st.columns(5)
+        col1,col2,col3,col4,col5 = st.columns(5)
 
         with col1:
             st.header("I")
